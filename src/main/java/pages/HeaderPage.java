@@ -30,8 +30,7 @@ public class HeaderPage extends BasePage {
      * Find and click on buttonOfMenu
      */
     public MenuPage clkMenuBtn() {
-        WebElement btnMenuFind = waitElementIsVisible(btnMenu);
-        btnMenuFind.click();
+        waitElementIsVisible(btnMenu).click();
         return new MenuPage(driver);
     }
 
@@ -39,8 +38,7 @@ public class HeaderPage extends BasePage {
      * Find and click on Trackster link
      */
     public HeaderPage clkLnkLogo() {
-        WebElement lnkLogoFind = driver.findElement(lnkLogo);
-        lnkLogoFind.click();
+        driver.findElement(lnkLogo).click();
         return this;
     }
 
@@ -48,8 +46,7 @@ public class HeaderPage extends BasePage {
      * Find and click to buttonForSelectMenuOfLanguage
      */
     public HeaderPage clkListBoxBtn() {
-        WebElement btnListBoxFind = driver.findElement(btnListBox);
-        btnListBoxFind.click();
+        driver.findElement(btnListBox).click();
         return this;
     }
 

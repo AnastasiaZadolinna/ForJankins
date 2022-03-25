@@ -9,24 +9,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class YAMLDeserializer {
-
     public static Map<String, String> fromFileToMap(String fileName) {
-
         Map<String, String> map = new HashMap<>();
-
         try {
-            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            File file = new File(classLoader.getResource(fileName).getFile());
-            //File file = new File("E:\\\\user.yaml");
+//            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+//            File file = new File(classLoader.getResource(fileName).getFile());
+            File file = new File("E:\\\\user.yaml");
             ObjectMapper om = new ObjectMapper(new YAMLFactory());
             map = om.readValue(file, Map.class);
-
             return map;
-
         } catch (IOException exception) {
             exception.printStackTrace();
         }
         return map;
     }
-
 }

@@ -1,0 +1,1 @@
+{"uuid":"233e63c2-5d25-4b50-bed4-4322e0ec648c","name":"Verify that error message \"Email is invalid\" is displayed when user login with invalid email","children":["b37146ee-cdff-45d3-ab4f-b8bf83ceddc6"],"befores":[],"afters":[],"links":[],"start":1645123917063,"stop":1645123918813}

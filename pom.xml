@@ -51,43 +51,43 @@
             <version>3.21.0</version>
             <scope>test</scope>
         </dependency>
-
-
-
         <dependency>
-
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.5.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
-
             <artifactId>jackson-dataformat-yaml</artifactId>
-
             <version>2.13.1</version>
-
         </dependency>
-
-
-
         <dependency>
-
             <groupId>com.fasterxml.jackson.core</groupId>
-
             <artifactId>jackson-databind</artifactId>
-
             <version>2.13.1</version>
-
         </dependency>
-
-
-
         <dependency>
-
             <groupId>io.qameta.allure</groupId>
-
             <artifactId>allure-junit5</artifactId>
-
             <version>${allure-junit5.version}</version>
-
         </dependency>
-
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20211205</version>
+        </dependency>
     </dependencies>
 
 
@@ -123,83 +123,25 @@
                     <reportFormat>plain</reportFormat>
                 </configuration>
 
-
-                <dependencies>
-
-
-                    <dependency>
-
-                        <groupId>org.aspectj</groupId>
-
-                        <artifactId>aspectjweaver</artifactId>
-
-                        <version>${aspectj.version}</version>
-
-                    </dependency>
-
-
-                    <dependency>
-
-                        <groupId>org.junit.jupiter</groupId>
-
-                        <artifactId>junit-jupiter-api</artifactId>
-
-                        <version>${junit.jupiter.version}</version>
-
-                    </dependency>
-
-
-                    <dependency>
-
-                        <groupId>org.junit.jupiter</groupId>
-
-                        <artifactId>junit-jupiter-engine</artifactId>
-
-                        <version>${junit.jupiter.version}</version>
-
-                    </dependency>
-
-                </dependencies>
-
             </plugin>
-
-
             <plugin>
-
                 <groupId>io.qameta.allure</groupId>
-
                 <artifactId>allure-maven</artifactId>
-
                 <version>${allure-maven.version}</version>
-
                 <configuration>
                     <reportDirectory>${project.basedir}/surefire-reports</reportDirectory>
                 </configuration>
-
             </plugin>
-
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
-
                 <artifactId>maven-compiler-plugin</artifactId>
-
                 <version>${maven-compiler-plugin.version}</version>
 
-
-
                 <configuration>
-
                     <source>${java.version}</source>
-
                     <target>${java.version}</target>
-
                 </configuration>
-
             </plugin>
-
         </plugins>
-
     </build>
-
 </project>

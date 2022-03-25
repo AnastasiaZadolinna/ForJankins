@@ -125,3 +125,21 @@ public class LoginPageTest extends BaseTest {
     }
 }
 
+
+//    @ParameterizedTest
+//    @MethodSource("invalidCredentials")
+//    public void loginTestInvalidCredentials(String name, String password, String errorMessage) {
+//        homePage.clkMenuBtn()
+//                .clkLoginBtn()
+//                .insertLoginFld(name, password)
+//                .clkSubmitLogin();
+//        assertTrue(loginPage.isErrorMessageIncorrectEmailOrPasswordDispl(), errorMessage);
+//    }
+//
+//    private static Stream<Arguments> invalidCredentials() {
+//        return Stream.of(
+//                Arguments.of(INVALID_USER_NAME, USER_PASSWORD, "Error Text Email Isn't Valid isn't displayed when the user is logged in"),
+//                Arguments.of(USER_NAME, INVALID_USER_PASSWORD, "Incorrect email or password Isn't Vali isn't displayed when the user is logged in")
+//        );
+//    }
+

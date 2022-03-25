@@ -17,7 +17,6 @@ public abstract class AuthorizedTest extends BaseTest {
 
     public AuthorizedTest() {
         super();
-
         user = fromFileToMap("user.yaml");
         myParcelsPage = new MyParcelsPage(driver);
         headerPage = new HeaderPage(driver);
@@ -26,9 +25,7 @@ public abstract class AuthorizedTest extends BaseTest {
 
     public AuthorizedTest(String file) {
         this();
-
         user = fromFileToMap(file);
-
     }
 
     @BeforeEach

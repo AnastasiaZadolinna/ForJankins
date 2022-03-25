@@ -77,15 +77,11 @@ public class MyParcelsPage extends BasePage {
             ("//legend[text()='Статус']");
     private final By engStatus = By.xpath
             ("//legend[text()='Status']");
-    private final By dltBtnParcel = By.xpath
-            ("//div[@class='MuiDialogActions-root MuiDialogActions-spacing']//button/following-sibling::button");
     private final By tbrBtnParcel = By.xpath
             ("//div[@class='MuiCollapse-container MuiCollapse-entered']");
     private final By nothingFoundImg = By.xpath("//div[@class='not-found']");
 
-    /**
-     * Methods find elements on page
-     */
+
     public boolean isTrckNbrFldDisplayed() {
 
         return driver.findElement(trckNbrFld).isDisplayed();
@@ -247,6 +243,7 @@ public class MyParcelsPage extends BasePage {
     }
 
     public boolean isNothinfFoundImgDisplayed() {
+
         return driver.findElement(nothingFoundImg).isDisplayed();
     }
 

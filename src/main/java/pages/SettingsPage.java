@@ -50,119 +50,78 @@ public class SettingsPage extends BasePage {
     private final By massagePasswordChange = By.xpath
             ("//form/div[4]/div[2]/p");
 
+    /**
+     * Find and click the phoneRegionButton
+     */
     public SettingsPage clickPhoneRegionButton() {
         WebElement phoneRegionButtonFind = driver.findElement(btnPhoneRegion);
         phoneRegionButtonFind.click();
         return this;
     }
 
-    public SettingsPage changePassword(String password, String confirm) {
-        waitElementIsVisible(fldNewPassword).sendKeys(password);
-        waitElementIsVisible(fldConfirmPassword).sendKeys(confirm);
-        waitElementIsVisible(btnChangePassword).click();
+    /**
+     *
+     * @param password
+     * @param confirm
+     * @return
+     */
+    public SettingsPage changePassword(String password, String confirm){
+        WebElement passwordInput = driver.findElement(fldNewPassword);
+        passwordInput.sendKeys(password);
+        WebElement confirmPassword = driver.findElement(fldConfirmPassword);
+        confirmPassword.sendKeys(confirm);
+        WebElement changePassword = driver.findElement(btnChangePassword);
+        changePassword.click();
         return this;
     }
-
-    public SettingsPage confirmNewPhoneNumber(String number) {
-        waitElementIsVisible(phoneNumberField).sendKeys(number);
+    public SettingsPage confirmNewPhoneNumber(String number){
+        WebElement fieldPhoneNumb = driver.findElement(phoneNumberField);
+        fieldPhoneNumb.sendKeys(number);
         WebElement btnUpdateProfileClk = driver.findElement(BtnUpdateProfile);
         btnUpdateProfileClk.click();
         return this;
     }
-
-    public SettingsPage confirmNewPassword(String newPassword, String confirmPassword) {
-        waitElementIsVisible(fldNewPassword).sendKeys(newPassword);
-        waitElementIsVisible(fldConfirmPassword).sendKeys(confirmPassword);
+    public SettingsPage confirmNewPassword(String newPassword, String confirmPassword){
+        WebElement fldNewPasswordInput = driver.findElement(fldNewPassword);
+        fldNewPasswordInput.sendKeys(newPassword);
+        WebElement fldConfirmPasswordInput = driver.findElement(fldConfirmPassword);
+        fldConfirmPasswordInput.sendKeys(confirmPassword);
         return this;
     }
-
     public SettingsPage confirmChangePassword(String currentPassword, String newPassword, String confirmPassword) {
-        waitElementIsVisible(fldCurrentPassword).sendKeys(currentPassword);
-        waitElementIsVisible(fldNewPassword).sendKeys(newPassword);
-        waitElementIsVisible(fldConfirmPassword).sendKeys(confirmPassword);
-        waitElementIsVisible(btnChangePassword).click();
+        WebElement fldCurrentPasswordInput = driver.findElement(fldCurrentPassword);
+        fldCurrentPasswordInput.sendKeys(currentPassword);
+        WebElement fldNewPasswordInput = driver.findElement(fldNewPassword);
+        fldNewPasswordInput.sendKeys(newPassword);
+        WebElement fldConfirmPasswordInput = driver.findElement(fldConfirmPassword);
+        fldConfirmPasswordInput.sendKeys(confirmPassword);
+        WebElement btnChangePasswordClk = driver.findElement(btnChangePassword);
+        btnChangePasswordClk.click();
         return this;
     }
-
-    public boolean findToolBar() {
-        return driver.findElement(tbr).isDisplayed();
-    }
-
-    public boolean findMenuButton() {
-        return driver.findElement(btnMenu).isDisplayed();
-    }
-
-    public boolean findLogoImg() {
-        return driver.findElement(imgLogo).isDisplayed();
-    }
-
-    public boolean findFollowToLandingPageButton() {
-        return driver.findElement(btnFollowToLandingPage).isDisplayed();
-    }
-
-    public boolean findSelectLanguageMenuButton() {
-        return driver.findElement(btnSelectLanguageMenu).isDisplayed();
-    }
-
-    public boolean findHeadingProfile() {
-        return driver.findElement(headingProfile).isDisplayed();
-    }
-
-    public boolean findGeneralInformationText() {
-        return driver.findElement(textGeneralInformation).isDisplayed();
-    }
-
-    public boolean findEmailField() {
-        return driver.findElement(fldEmail).isDisplayed();
-    }
-
-    public boolean findEmailHelperText() {
-        return driver.findElement(textEmailHelper).isDisplayed();
-    }
-
-    public boolean findPhoneRegionButton() {
-        return driver.findElement(btnPhoneRegion).isDisplayed();
-    }
-
-    public boolean findPhoneNumberField() {
-        return driver.findElement(phoneNumberField).isDisplayed();
-    }
-
-    public boolean findUpdateProfileButton() {
-        return driver.findElement(BtnUpdateProfile).isDisplayed();
-    }
-
-    public boolean findCurrentPasswordField() {
-        return driver.findElement(fldCurrentPassword).isDisplayed();
-    }
-
-    public boolean findNewPasswordField() {
-        return driver.findElement(fldNewPassword).isDisplayed();
-    }
-
-    public boolean findConfirmPasswordField() {
-        return driver.findElement(fldConfirmPassword).isDisplayed();
-    }
-
-    public boolean findChangePasswordButton() {
-        return driver.findElement(btnChangePassword).isDisplayed();
-    }
-
-    public boolean findIForgotMyPasswordUrl() {
-        return driver.findElement(urlIForgotMyPassword).isDisplayed();
-    }
-
-    public boolean findMassageProfileUpdated() {
-        return driver.findElement(massageProfileUpdated).isDisplayed();
-    }
-
-    public boolean findMassagePasswordConfirmation() {
-        return driver.findElement(massagePasswordConfirmation).isDisplayed();
-    }
-
-    public boolean findMassagePasswordChange() {
-        return driver.findElement(massagePasswordChange).isDisplayed();
-    }
+    /**
+     * Methods find elements on page
+     */
+    public boolean findToolBar() {return driver.findElement(tbr).isDisplayed();}
+    public boolean findMenuButton() {return driver.findElement(btnMenu).isDisplayed();}
+    public boolean findLogoImg() {return driver.findElement(imgLogo).isDisplayed();}
+    public boolean findFollowToLandingPageButton() {return driver.findElement(btnFollowToLandingPage).isDisplayed();}
+    public boolean findSelectLanguageMenuButton() {return driver.findElement(btnSelectLanguageMenu).isDisplayed();}
+    public boolean findHeadingProfile() {return driver.findElement(headingProfile).isDisplayed();}
+    public boolean findGeneralInformationText() {return driver.findElement(textGeneralInformation).isDisplayed();}
+    public boolean findEmailField() {return driver.findElement(fldEmail).isDisplayed();}
+    public boolean findEmailHelperText() {return driver.findElement(textEmailHelper).isDisplayed();}
+    public boolean findPhoneRegionButton() {return driver.findElement(btnPhoneRegion).isDisplayed();}
+    public boolean findPhoneNumberField() {return driver.findElement(phoneNumberField).isDisplayed();}
+    public boolean findUpdateProfileButton() {return driver.findElement(BtnUpdateProfile).isDisplayed();}
+    public boolean findCurrentPasswordField() {return driver.findElement(fldCurrentPassword).isDisplayed();}
+    public boolean findNewPasswordField() {return driver.findElement(fldNewPassword).isDisplayed();}
+    public boolean findConfirmPasswordField() {return driver.findElement(fldConfirmPassword).isDisplayed();}
+    public boolean findChangePasswordButton() {return driver.findElement(btnChangePassword).isDisplayed();}
+    public boolean findIForgotMyPasswordUrl() {return driver.findElement(urlIForgotMyPassword).isDisplayed();}
+    public boolean findMassageProfileUpdated() {return driver.findElement(massageProfileUpdated).isDisplayed();}
+    public boolean findMassagePasswordConfirmation() {return driver.findElement(massagePasswordConfirmation).isDisplayed();}
+    public boolean findMassagePasswordChange() {return driver.findElement(massagePasswordChange).isDisplayed();}
 
 
 }

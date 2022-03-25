@@ -8,13 +8,11 @@ import utils.DriverConfiguration;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BaseTest {
-
     protected WebDriver driver;
     protected HomePage homePage;
     protected HeaderPage headerPage;
 
     public BaseTest() {
-
         driver = DriverConfiguration.createDriver();
         homePage = new HomePage(driver);
         headerPage = new HeaderPage(driver);

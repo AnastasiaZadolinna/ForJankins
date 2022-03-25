@@ -1,10 +1,12 @@
 package tests;
 
-import org.apache.maven.surefire.shared.lang3.RandomStringUtils;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 import pages.*;
-import utils.YAMLDeserializer;
+import utils.DriverConfiguration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,37 +21,17 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test
-    public void verifyThatUserCantUseEmailWhichIsAlreadyBusy(){
+    public void VerifyThatUserInputsValidEmail() {
         headerPage.clkMenuBtn()
                 .clkSignupBtn();
-        String newEmail = YAMLDeserializer.fromFileToMap("user_data").get("email");
-        String password = YAMLDeserializer.fromFileToMap("user_data").get("password");
-        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("confirm_password");
-        signupPage.inputNewEmail(newEmail, password, confirmPassword);
-        assertTrue(signupPage.findMassageEmailIsBusy(), "Email is already busy");
-    }
-
-    @Test
-    public void verifyThatUserInputsValidEmail() {
-        headerPage.clkMenuBtn()
-                .clkSignupBtn();
-        String newEmail = YAMLDeserializer.fromFileToMap("user_data").get("invalid_email");
-        String password = YAMLDeserializer.fromFileToMap("user_data").get("password");
-        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("confirm_password");
-        signupPage.inputNewEmail(newEmail, password, confirmPassword);
+        signupPage.inputNewEmail("user2gmail.com", "123456", "123456");
         assertTrue(signupPage.findMassageInvalidEmail(), "Email is invalid");
     }
-    @Test
-    public void verifyThatUserIsAbleToCreateNewAccount(){
-        headerPage.clkMenuBtn()
-                .clkSignupBtn();
-        String name = RandomStringUtils.randomAlphabetic( 8 ) + "@gmail.com";
-        String password = YAMLDeserializer.fromFileToMap("user_data").get("password");
-        String confirmPassword = YAMLDeserializer.fromFileToMap("user_data").get("confirm_password");
-        signupPage.inputNewEmail(name, password, confirmPassword);
-        assertTrue(signupPage.findRegistrationMassage(), "We've sent an email to your address. Open it up to activate your account");
-    }
 
+    @AfterEach
+    public void tearDown(){
+
+    }
     @Test
     public void verifyThatAllElementsAreDisplayed() {
         headerPage.clkMenuBtn()
